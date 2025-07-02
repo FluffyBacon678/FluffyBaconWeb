@@ -1,0 +1,26 @@
+
+<!DOCTYPE html>
+<html>
+<head><title>Pong - Placeholder</title></head>
+<body style="text-align:center">
+  <canvas id="gameCanvas" width="400" height="300" style="border:1px solid #000;"></canvas>
+  <script>
+    let canvas = document.getElementById("gameCanvas");
+    let ctx = canvas.getContext("2d");
+    let ballX = 200, ballY = 150, ballSpeedX = 2, ballSpeedY = 2;
+    function draw() {
+      ctx.fillStyle = "black";
+      ctx.fillRect(0, 0, 400, 300);
+      ctx.fillStyle = "white";
+      ctx.beginPath();
+      ctx.arc(ballX, ballY, 10, 0, Math.PI * 2);
+      ctx.fill();
+      ballX += ballSpeedX;
+      ballY += ballSpeedY;
+      if(ballX < 0 || ballX > 400) ballSpeedX *= -1;
+      if(ballY < 0 || ballY > 300) ballSpeedY *= -1;
+    }
+    setInterval(draw, 20);
+  </script>
+</body>
+</html>
