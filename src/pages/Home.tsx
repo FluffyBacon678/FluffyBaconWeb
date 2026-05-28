@@ -36,17 +36,15 @@ export function Home() {
         <div className="home-welcome">
           <div className="section-number">02</div>
           <div className="home-welcome-prefix">// USER: FLUFFY_BACON</div>
-          <h2 className="home-welcome-title cursor">Welcome to my page</h2>
+          <h2 className="home-welcome-title cursor">Hey, I'm Ariel.</h2>
           <p className="home-welcome-text">
-            This is my personal lab on the internet — a place for projects,
-            infrastructure work, experiments, Minecraft systems, homelab notes,
-            and anything I build while learning.
+            I enjoy diving into different technologies, solving technical
+            problems, and connecting people with tech in practical ways.
           </p>
           <p className="home-welcome-text">
-            I work mostly around IT infrastructure, Windows environments,
-            troubleshooting, endpoint support, and practical technical problem
-            solving. I also enjoy building weird tools, game-related projects,
-            and local AI ideas.
+            This site is my personal lab — a place where I upload projects,
+            articles, notes, experiments, and anything I'm currently building
+            or learning.
           </p>
         </div>
         <NewsFeed />
