@@ -8,7 +8,7 @@ export interface ExperienceItem {
   role: string         // job title
   company: string
   location?: string    // city, country
-  period: string       // "Jan 2024 – Present" or "2022 – 2023"
+  period: string       // "Sep 2025 – Present" or "2022 – 2023"
   summary?: string     // one short sentence about the role
 }
 
@@ -39,8 +39,8 @@ export interface ResumeData {
 
 export const resumeData: ResumeData = {
   name: 'Ariel Gal-Nur',
-  title: 'Network & Security Administrator',
-  location: 'Israel',
+  title: 'Infrastructure / Systems / Network Administrator',
+  location: 'Zikhron Yaakov, Haifa District, Israel',
   contactEmail: 'ariel.galnur@gmail.com',
   contactGitHub: 'https://github.com/FluffyBacon678',
   contactLinkedIn: 'https://il.linkedin.com/in/ariel-gal-nur-164115181',
@@ -48,20 +48,30 @@ export const resumeData: ResumeData = {
   // Newest first. The page renders these as a vertical timeline.
   experience: [
     {
-      role: 'TODO — role title',
+      role: 'IT Infrastructure & System Administrator',
+      company: 'Ceragon Networks',
+      location: 'Israel · On-site',
+      period: 'Sep 2025 – Present',
+    },
+    {
+      role: 'System Administrator',
+      company: 'Ceragon Networks',
+      location: 'Bucharest, Romania · On-site',
+      period: 'Feb 2023 – Mar 2025',
+      summary: 'On-site IT manager.',
+    },
+    {
+      role: 'IT Infrastructure & System Administrator',
       company: 'Ceragon Networks',
       location: 'Israel',
-      period: 'TODO — Start month/year – Present',
-      summary: 'TODO — one short sentence on the role.',
+      period: 'Feb 2020 – Mar 2023',
+      summary: 'Manage and support computer hardware and Active Directory.',
     },
-    // Add older jobs below (copy the block above).
-    // {
-    //   role: '',
-    //   company: '',
-    //   location: '',
-    //   period: '',
-    //   summary: '',
-    // },
+    {
+      role: 'Network Administrator',
+      company: 'IDF — Israel Defence Forces',
+      period: 'Nov 2016 – Sep 2019',
+    },
   ],
 
   education: [
