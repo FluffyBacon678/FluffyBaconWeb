@@ -7,91 +7,86 @@ export function Resume() {
   return (
     <>
       <header className="page-header">
-        <div className="page-header-prefix">// PROFILE / RESUME.DAT</div>
-        <h2 className="page-header-title">Resume</h2>
-        <p className="page-header-subtitle">IT Infrastructure &amp; Systems Support</p>
+        <div className="page-header-prefix">// PROFILE / RESUME</div>
+        <h2 className="page-header-title">{r.name}</h2>
+        <p className="page-header-subtitle">{r.title} · {r.location}</p>
       </header>
 
       <div className="resume-page">
-        {/* HEADER */}
-        <div className="resume-header">
-          <div>
-            <h3 className="resume-name">{r.name}</h3>
-            <div className="resume-title">{r.title}</div>
-          </div>
-          <div className="resume-contact">
-            <a href={`mailto:${r.contactEmail}`}>{r.contactEmail}</a>
-            <a href={r.contactGitHub} target="_blank" rel="noopener noreferrer">
-              github.com/FluffyBacon678
-            </a>
-            <a href={r.contactLinkedIn} target="_blank" rel="noopener noreferrer">
-              LinkedIn / ariel-gal-nur
-            </a>
-            <span>{r.contactLocation}</span>
-          </div>
-        </div>
-
-        {/* PDF BUTTON */}
-        <div style={{ marginBottom: 28 }}>
+        {/* CONTACT STRIP */}
+        <div className="resume-contact-strip">
+          <a href={`mailto:${r.contactEmail}`}>{r.contactEmail}</a>
+          <a href={r.contactGitHub} target="_blank" rel="noopener noreferrer">
+            github.com/FluffyBacon678
+          </a>
+          <a href={r.contactLinkedIn} target="_blank" rel="noopener noreferrer">
+            LinkedIn
+          </a>
           {r.pdfAvailable ? (
             <a href={getPublicUrl('resume.pdf')} download className="btn btn-primary">
-              ↓ Download PDF Resume
+              ↓ PDF
             </a>
-          ) : (
-            <span className="btn disabled" aria-disabled="true">PDF coming soon</span>
-          )}
+          ) : null}
         </div>
 
-        {/* SUMMARY */}
-        <section className="resume-section" aria-labelledby="summary-heading">
-          <h4 className="resume-section-title" id="summary-heading">Profile Summary</h4>
-          <p className="resume-summary">{r.summary}</p>
-        </section>
-
-        {/* SKILLS */}
-        <section className="resume-section" aria-labelledby="skills-heading">
-          <h4 className="resume-section-title" id="skills-heading">Core Skills</h4>
-          <div className="skills-grid">
-            {r.skills.map(skill => (
-              <span key={skill} className="skill-tag">{skill}</span>
-            ))}
-          </div>
-        </section>
-
-        {/* EXPERIENCE */}
+        {/* EXPERIENCE TIMELINE */}
         <section className="resume-section" aria-labelledby="exp-heading">
-          <h4 className="resume-section-title" id="exp-heading">Experience</h4>
-          {r.experience.map(exp => (
-            <div key={exp.role + exp.company} className="experience-item">
-              <div className="experience-role">{exp.role}</div>
-              <div className="experience-company">
-                <span>{exp.company}</span>
-                <span className="experience-period">{exp.period}</span>
+          <h3 className="resume-section-title" id="exp-heading">Experience</h3>
+          <div className="timeline">
+            {r.experience.map((exp, i) => (
+              <div key={`${exp.company}-${i}`} className="timeline-item">
+                <div className="timeline-marker" aria-hidden="true" />
+                <div className="timeline-period">{exp.period}</div>
+                <div className="timeline-content">
+                  <div className="timeline-role">{exp.role}</div>
+                  <div className="timeline-company">
+                    {exp.company}
+                    {exp.location && <span className="timeline-location"> · {exp.location}</span>}
+                  </div>
+                  {exp.summary && <p className="timeline-summary">{exp.summary}</p>}
+                </div>
               </div>
-              <ul className="experience-highlights">
-                {exp.highlights.map(h => <li key={h}>{h}</li>)}
-              </ul>
-            </div>
-          ))}
-        </section>
-
-        {/* TECHNICAL ENVIRONMENT */}
-        <section className="resume-section" aria-labelledby="env-heading">
-          <h4 className="resume-section-title" id="env-heading">Technical Environment</h4>
-          <div className="skills-grid">
-            {r.technicalEnvironment.map(item => (
-              <span key={item} className="skill-tag">{item}</span>
             ))}
           </div>
         </section>
+
+        {/* EDUCATION */}
+        {r.education.length > 0 && (
+          <section className="resume-section" aria-labelledby="edu-heading">
+            <h3 className="resume-section-title" id="edu-heading">Education</h3>
+            <div className="timeline">
+              {r.education.map((edu, i) => (
+                <div key={`${edu.school}-${i}`} className="timeline-item">
+                  <div className="timeline-marker" aria-hidden="true" />
+                  <div className="timeline-period">{edu.period}</div>
+                  <div className="timeline-content">
+                    <div className="timeline-role">{edu.qualification}</div>
+                    <div className="timeline-company">{edu.school}</div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+        )}
 
         {/* CERTIFICATIONS */}
-        <section className="resume-section" aria-labelledby="cert-heading">
-          <h4 className="resume-section-title" id="cert-heading">Certifications &amp; Learning Goals</h4>
-          <ul className="experience-highlights">
-            {r.certifications.map(c => <li key={c}>{c}</li>)}
-          </ul>
-        </section>
+        {r.certifications.length > 0 && (
+          <section className="resume-section" aria-labelledby="cert-heading">
+            <h3 className="resume-section-title" id="cert-heading">Certifications</h3>
+            <div className="cert-list">
+              {r.certifications.map((cert, i) => (
+                <div key={`${cert.name}-${i}`} className="cert-item">
+                  <div className="cert-name">{cert.name}</div>
+                  <div className="cert-meta">
+                    <span>{cert.issuer}</span>
+                    <span className="sep">//</span>
+                    <span>{cert.date}</span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+        )}
       </div>
     </>
   )

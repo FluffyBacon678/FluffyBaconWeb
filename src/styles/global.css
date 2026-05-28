@@ -1448,12 +1448,145 @@ h1, h2, h3, h4, h5, h6 { line-height: 1.25; font-weight: 700; }
 }
 
 /* =====================================================
-   RESUME PAGE
+   RESUME PAGE — timeline-based
    ===================================================== */
 .resume-page {
   padding: 36px 36px 56px 36px;
   max-width: 880px;
 }
+
+.resume-contact-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 22px;
+  align-items: center;
+  padding: 14px 18px;
+  margin-bottom: 32px;
+  background: var(--bg-elev);
+  border: 1px solid var(--border-glow);
+  border-left: 2px solid var(--cyan);
+  font-family: var(--mono);
+  font-size: 0.82rem;
+}
+.resume-contact-strip a {
+  color: var(--text-dim);
+  text-decoration: none;
+  letter-spacing: 0.02em;
+}
+.resume-contact-strip a:hover {
+  color: var(--cyan);
+  text-shadow: 0 0 8px var(--cyan-glow);
+}
+.resume-contact-strip .btn { margin-left: auto; }
+
+/* === TIMELINE === */
+.timeline {
+  position: relative;
+  padding-left: 22px;
+  border-left: 1px solid var(--border-glow);
+}
+
+.timeline-item {
+  position: relative;
+  padding: 0 0 26px 18px;
+}
+.timeline-item:last-child { padding-bottom: 0; }
+
+.timeline-marker {
+  position: absolute;
+  left: -29px;
+  top: 6px;
+  width: 14px;
+  height: 14px;
+  background: var(--bg);
+  border: 2px solid var(--cyan);
+  border-radius: 50%;
+  box-shadow: 0 0 0 3px var(--bg), 0 0 12px var(--cyan-glow);
+  transition: background 0.2s, box-shadow 0.2s;
+}
+.timeline-item:hover .timeline-marker {
+  background: var(--cyan);
+  box-shadow: 0 0 0 3px var(--bg), 0 0 18px var(--cyan-glow);
+}
+
+.timeline-period {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  color: var(--magenta);
+  letter-spacing: 0.08em;
+  font-weight: 700;
+  margin-bottom: 4px;
+  text-shadow: 0 0 6px var(--magenta-glow);
+}
+
+.timeline-content {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.timeline-role {
+  font-family: var(--mono);
+  font-size: 1.02rem;
+  font-weight: 700;
+  color: var(--text-bright);
+  letter-spacing: 0.01em;
+}
+
+.timeline-company {
+  font-family: var(--mono);
+  font-size: 0.84rem;
+  color: var(--cyan);
+}
+
+.timeline-location {
+  color: var(--text-faint);
+  font-weight: 400;
+}
+
+.timeline-summary {
+  font-size: 0.9rem;
+  color: var(--text-dim);
+  line-height: 1.7;
+  margin-top: 6px;
+}
+
+/* === CERTIFICATIONS === */
+.cert-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.cert-item {
+  padding: 12px 16px;
+  background: var(--bg-elev);
+  border: 1px solid var(--border-glow);
+  border-left: 2px solid var(--magenta);
+  transition: border-color 0.18s, background 0.18s;
+}
+.cert-item:hover {
+  border-color: var(--border-cyan);
+  border-left-color: var(--cyan);
+  background: rgba(34, 211, 238, 0.04);
+}
+
+.cert-name {
+  font-family: var(--mono);
+  font-weight: 700;
+  font-size: 0.92rem;
+  color: var(--text-bright);
+  margin-bottom: 3px;
+}
+
+.cert-meta {
+  font-family: var(--mono);
+  font-size: 0.74rem;
+  color: var(--text-faint);
+  display: flex;
+  gap: 8px;
+}
+.cert-meta .sep { color: var(--cyan); }
 
 .resume-header {
   margin-bottom: 36px;

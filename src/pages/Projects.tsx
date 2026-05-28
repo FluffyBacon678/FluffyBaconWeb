@@ -1,9 +1,8 @@
 import { useState, useMemo } from 'react'
-import { projects, type ProjectStatus } from '../data/projects'
+import { projects } from '../data/projects'
 import { ProjectCard } from '../components/ProjectCard'
 
 const ALL_CATEGORIES = Array.from(new Set(projects.map(p => p.category))).sort()
-const ALL_STATUSES: ProjectStatus[] = ['Active', 'In Progress', 'Concept', 'Archived']
 
 export function Projects() {
   const [search, setSearch] = useState('')
@@ -22,16 +21,13 @@ export function Projects() {
     })
   }, [search, category])
 
-  const featured = filtered.filter(p => p.featured)
-  const rest = filtered.filter(p => !p.featured)
-
   return (
     <>
       <header className="page-header">
         <div className="page-header-prefix">// ARCHIVE / PROJECTS</div>
         <h2 className="page-header-title">Projects</h2>
         <p className="page-header-subtitle">
-          {projects.length} entries · tools, mods, infrastructure &amp; experiments
+          {projects.length} repo{projects.length !== 1 ? 's' : ''} on GitHub
         </p>
       </header>
 
@@ -62,36 +58,11 @@ export function Projects() {
           ))}
         </div>
 
-        {featured.length > 0 && (
-          <>
-            <div style={{ marginBottom: 8, display: 'flex', alignItems: 'center', gap: 10 }}>
-              <span className="badge badge-active">Featured</span>
-              <span style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>
-                {featured.length} project{featured.length !== 1 ? 's' : ''}
-              </span>
-            </div>
-            <div className="projects-grid" style={{ marginBottom: 24 }}>
-              {featured.map(p => <ProjectCard key={p.id} project={p} />)}
-            </div>
-          </>
-        )}
-
-        {rest.length > 0 && (
-          <>
-            {featured.length > 0 && (
-              <div style={{ marginBottom: 8 }}>
-                <span style={{ fontSize: '0.8rem', color: 'var(--text-muted)', fontFamily: 'var(--mono)' }}>
-                  Other projects
-                </span>
-              </div>
-            )}
-            <div className="projects-grid">
-              {rest.map(p => <ProjectCard key={p.id} project={p} />)}
-            </div>
-          </>
-        )}
-
-        {filtered.length === 0 && (
+        {filtered.length > 0 ? (
+          <div className="projects-grid">
+            {filtered.map(p => <ProjectCard key={p.id} project={p} />)}
+          </div>
+        ) : (
           <p style={{ color: 'var(--text-muted)', fontStyle: 'italic', padding: '24px 0' }}>
             No projects match your search.
           </p>
