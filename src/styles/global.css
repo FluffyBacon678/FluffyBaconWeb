@@ -1479,76 +1479,132 @@ h1, h2, h3, h4, h5, h6 { line-height: 1.25; font-weight: 700; }
 }
 .resume-contact-strip .btn { margin-left: auto; }
 
-/* === TIMELINE === */
-.timeline {
+/* === EXPERIENCE — LinkedIn-style company grouping === */
+.exp-list {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.exp-company {
+  background: var(--bg-elev);
+  border: 1px solid var(--border-glow);
+  border-left: 2px solid var(--cyan);
+  padding: 18px 22px 22px 22px;
+  transition: border-color 0.18s;
+}
+.exp-company:hover {
+  border-color: var(--border-cyan);
+}
+
+.exp-company-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding-bottom: 12px;
+  margin-bottom: 16px;
+  border-bottom: 1px dashed var(--border-glow);
+}
+
+.exp-company-name {
+  font-family: var(--mono);
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--text-bright);
+  letter-spacing: 0.02em;
+  text-shadow: 0 0 10px rgba(34, 211, 238, 0.2);
+}
+
+.exp-company-total {
+  font-family: var(--mono);
+  font-size: 0.74rem;
+  color: var(--magenta);
+  letter-spacing: 0.08em;
+  font-weight: 700;
+  text-shadow: 0 0 6px var(--magenta-glow);
+}
+.exp-company-total::before {
+  content: '· ';
+  color: var(--text-faint);
+}
+
+.exp-positions {
   position: relative;
   padding-left: 22px;
   border-left: 1px solid var(--border-glow);
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
 }
 
-.timeline-item {
+.exp-position {
   position: relative;
-  padding: 0 0 26px 18px;
+  padding-left: 4px;
 }
-.timeline-item:last-child { padding-bottom: 0; }
 
-.timeline-marker {
+.exp-position-marker {
   position: absolute;
-  left: -29px;
-  top: 6px;
-  width: 14px;
-  height: 14px;
-  background: var(--bg);
+  left: -28px;
+  top: 4px;
+  width: 11px;
+  height: 11px;
+  background: var(--bg-elev);
   border: 2px solid var(--cyan);
   border-radius: 50%;
-  box-shadow: 0 0 0 3px var(--bg), 0 0 12px var(--cyan-glow);
+  box-shadow: 0 0 0 3px var(--bg-elev), 0 0 10px var(--cyan-glow);
   transition: background 0.2s, box-shadow 0.2s;
 }
-.timeline-item:hover .timeline-marker {
+.exp-position:hover .exp-position-marker {
   background: var(--cyan);
-  box-shadow: 0 0 0 3px var(--bg), 0 0 18px var(--cyan-glow);
+  box-shadow: 0 0 0 3px var(--bg-elev), 0 0 16px var(--cyan-glow);
 }
 
-.timeline-period {
+.exp-position-period {
   font-family: var(--mono);
   font-size: 0.72rem;
   color: var(--magenta);
-  letter-spacing: 0.08em;
+  letter-spacing: 0.06em;
   font-weight: 700;
   margin-bottom: 4px;
   text-shadow: 0 0 6px var(--magenta-glow);
 }
 
-.timeline-content {
-  display: flex;
-  flex-direction: column;
-  gap: 3px;
+.exp-position-duration {
+  color: var(--text-faint);
+  font-weight: 500;
+  text-shadow: none;
 }
 
-.timeline-role {
+.exp-position-role {
   font-family: var(--mono);
-  font-size: 1.02rem;
+  font-size: 1rem;
   font-weight: 700;
   color: var(--text-bright);
   letter-spacing: 0.01em;
+  margin-bottom: 2px;
 }
 
-.timeline-company {
+.exp-position-location {
   font-family: var(--mono);
-  font-size: 0.84rem;
-  color: var(--cyan);
+  font-size: 0.78rem;
+  color: var(--cyan-dim);
+  letter-spacing: 0.02em;
 }
 
-.timeline-location {
-  color: var(--text-faint);
-  font-weight: 400;
-}
-
-.timeline-summary {
+.exp-position-summary {
   font-size: 0.9rem;
   color: var(--text-dim);
   line-height: 1.7;
-  margin-top: 6px;
+  margin-top: 8px;
+}
+
+@media (max-width: 600px) {
+  .exp-company { padding: 14px 16px 16px 16px; }
+  .exp-company-header { gap: 4px; }
+  .exp-positions { padding-left: 18px; }
+  .exp-position-marker { left: -24px; }
 }
 
 /* === CERTIFICATIONS === */
