@@ -1132,107 +1132,201 @@ h1, h2, h3, h4, h5, h6 { line-height: 1.25; font-weight: 700; }
 }
 
 /* =====================================================
-   HOBBIES PAGE
+   HOBBIES PAGE — Steam-focused
    ===================================================== */
-.hobbies-page { padding: 28px; }
-
-.hobbies-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-  gap: 16px;
-}
-
-.hobby-card {
-  background: var(--bg-elev);
-  border: 1px solid var(--border-glow);
-  padding: 20px 22px;
+.hobbies-page {
+  padding: 28px;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 32px;
+}
+
+.steam-section {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* === Steam profile card === */
+.steam-profile {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  padding: 24px;
+  background: var(--bg-elev);
+  border: 1px solid var(--border-glow);
+  border-left: 2px solid var(--cyan);
+  text-decoration: none;
+  color: inherit;
   transition: all 0.2s;
   position: relative;
 }
 
-.hobby-card::before,
-.hobby-card::after {
-  content: '';
-  position: absolute;
-  width: 12px;
-  height: 12px;
-  border-color: var(--cyan);
-  border-style: solid;
-  opacity: 0;
-  transition: opacity 0.2s;
-  pointer-events: none;
-}
-.hobby-card::before { top: -2px; left: -2px; border-width: 2px 0 0 2px; }
-.hobby-card::after  { bottom: -2px; right: -2px; border-width: 0 2px 2px 0; }
-
-.hobby-card:hover {
+.steam-profile:hover {
   border-color: var(--border-cyan);
-  box-shadow: 0 0 0 1px var(--border-cyan), 0 6px 24px rgba(34, 211, 238, 0.1);
-  transform: translateY(-2px);
-}
-.hobby-card:hover::before,
-.hobby-card:hover::after {
-  opacity: 1;
-  filter: drop-shadow(0 0 4px var(--cyan-glow));
+  background: rgba(34, 211, 238, 0.03);
+  box-shadow: 0 0 0 1px var(--border-cyan), 0 6px 24px rgba(34, 211, 238, 0.12);
+  text-decoration: none;
 }
 
-.hobby-card-head {
+.steam-avatar {
+  width: 96px;
+  height: 96px;
+  border: 1px solid var(--border-cyan);
+  background: var(--bg-deep);
+  flex-shrink: 0;
+  filter: saturate(1.1);
+  box-shadow: 0 0 14px rgba(34, 211, 238, 0.15);
+}
+
+.steam-profile-body {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.steam-profile-name {
+  font-family: var(--mono);
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: var(--text-bright);
+  letter-spacing: 0.01em;
+  text-shadow: 0 0 12px rgba(34, 211, 238, 0.2);
+}
+
+.steam-profile-handle {
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  color: var(--cyan);
+  letter-spacing: 0.04em;
+  margin-bottom: 6px;
+}
+
+.steam-profile-bio {
+  font-size: 0.92rem;
+  color: var(--text-dim);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.steam-profile-meta {
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+  margin-top: 8px;
+  font-family: var(--mono);
+  font-size: 0.74rem;
+  color: var(--text-dim);
+}
+.steam-profile-meta .meta-label {
+  color: var(--magenta);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  margin-right: 4px;
+}
+
+.steam-profile-arrow {
+  font-family: var(--mono);
+  font-size: 1.6rem;
+  color: var(--cyan);
+  opacity: 0.5;
+  transition: transform 0.2s, opacity 0.2s, text-shadow 0.2s;
+  text-shadow: 0 0 8px var(--cyan-glow);
+  flex-shrink: 0;
+}
+.steam-profile:hover .steam-profile-arrow {
+  opacity: 1;
+  transform: translateX(4px);
+  text-shadow: 0 0 14px var(--cyan-glow);
+}
+
+/* === Steam games list === */
+.steam-games {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 12px;
+}
+
+.steam-game {
   display: flex;
   align-items: center;
   gap: 14px;
+  padding: 10px;
+  background: var(--bg-elev);
+  border: 1px solid var(--border-glow);
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.18s;
+  position: relative;
+  overflow: hidden;
 }
 
-.hobby-card-code {
-  font-family: var(--mono);
-  font-size: 0.78rem;
-  font-weight: 800;
-  letter-spacing: 0.04em;
-  color: var(--cyan);
-  background: rgba(34, 211, 238, 0.08);
-  border: 1px solid var(--border-cyan);
-  padding: 5px 10px;
-  min-width: 46px;
-  text-align: center;
-  text-shadow: 0 0 6px var(--cyan-glow);
-  user-select: none;
+.steam-game:hover {
+  border-color: var(--border-cyan);
+  background: rgba(34, 211, 238, 0.04);
+  text-decoration: none;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(34, 211, 238, 0.1);
+}
+
+.steam-game-capsule {
+  width: 92px;
+  height: 35px;
+  object-fit: cover;
+  background: var(--bg-deep);
+  border: 1px solid var(--border);
   flex-shrink: 0;
+  transition: filter 0.18s;
+  filter: saturate(1.05);
+}
+.steam-game:hover .steam-game-capsule {
+  filter: saturate(1.3) brightness(1.05);
+  border-color: var(--border-cyan);
 }
 
-.hobby-card:hover .hobby-card-code {
-  background: var(--cyan);
-  color: var(--bg-deep);
-  text-shadow: none;
-  box-shadow: 0 0 12px var(--cyan-glow);
+.steam-game-info {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
 }
 
-.hobby-card-title {
+.steam-game-name {
   font-family: var(--mono);
-  font-size: 1.04rem;
+  font-size: 0.88rem;
   font-weight: 700;
   color: var(--text-bright);
   letter-spacing: 0.01em;
-  line-height: 1.25;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-.hobby-card-desc {
-  font-size: 0.92rem;
-  color: var(--text-dim);
-  line-height: 1.7;
-}
-
-.hobby-card-tags {
+.steam-game-hours {
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  color: var(--text-faint);
   display: flex;
+  gap: 10px;
   flex-wrap: wrap;
-  gap: 4px;
-  margin-top: auto;
+}
+.steam-game-hours .hours-recent {
+  color: var(--cyan);
+  font-weight: 700;
+}
+.steam-game-hours .hours-total {
+  color: var(--text-dim);
 }
 
 @media (max-width: 600px) {
-  .hobbies-page { padding: 18px; }
-  .hobbies-grid { grid-template-columns: 1fr; }
+  .hobbies-page { padding: 18px; gap: 22px; }
+  .steam-profile { flex-direction: column; align-items: flex-start; padding: 18px; gap: 14px; }
+  .steam-profile-arrow { display: none; }
+  .steam-avatar { width: 80px; height: 80px; }
+  .steam-games { grid-template-columns: 1fr; }
 }
 
 /* =====================================================
