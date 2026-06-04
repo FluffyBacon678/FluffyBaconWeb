@@ -1242,91 +1242,11 @@ h1, h2, h3, h4, h5, h6 { line-height: 1.25; font-weight: 700; }
   text-shadow: 0 0 14px var(--cyan-glow);
 }
 
-/* === Steam games list === */
-.steam-games {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-  gap: 12px;
-}
-
-.steam-game {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  padding: 10px;
-  background: var(--bg-elev);
-  border: 1px solid var(--border-glow);
-  text-decoration: none;
-  color: inherit;
-  transition: all 0.18s;
-  position: relative;
-  overflow: hidden;
-}
-
-.steam-game:hover {
-  border-color: var(--border-cyan);
-  background: rgba(34, 211, 238, 0.04);
-  text-decoration: none;
-  transform: translateY(-1px);
-  box-shadow: 0 4px 16px rgba(34, 211, 238, 0.1);
-}
-
-.steam-game-capsule {
-  width: 92px;
-  height: 35px;
-  object-fit: cover;
-  background: var(--bg-deep);
-  border: 1px solid var(--border);
-  flex-shrink: 0;
-  transition: filter 0.18s;
-  filter: saturate(1.05);
-}
-.steam-game:hover .steam-game-capsule {
-  filter: saturate(1.3) brightness(1.05);
-  border-color: var(--border-cyan);
-}
-
-.steam-game-info {
-  flex: 1;
-  min-width: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-}
-
-.steam-game-name {
-  font-family: var(--mono);
-  font-size: 0.88rem;
-  font-weight: 700;
-  color: var(--text-bright);
-  letter-spacing: 0.01em;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.steam-game-hours {
-  font-family: var(--mono);
-  font-size: 0.7rem;
-  color: var(--text-faint);
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-}
-.steam-game-hours .hours-recent {
-  color: var(--cyan);
-  font-weight: 700;
-}
-.steam-game-hours .hours-total {
-  color: var(--text-dim);
-}
-
 @media (max-width: 600px) {
   .hobbies-page { padding: 18px; gap: 22px; }
   .steam-profile { flex-direction: column; align-items: flex-start; padding: 18px; gap: 14px; }
   .steam-profile-arrow { display: none; }
   .steam-avatar { width: 80px; height: 80px; }
-  .steam-games { grid-template-columns: 1fr; }
 }
 
 /* =====================================================
