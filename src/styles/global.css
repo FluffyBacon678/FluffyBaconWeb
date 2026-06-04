@@ -1132,6 +1132,110 @@ h1, h2, h3, h4, h5, h6 { line-height: 1.25; font-weight: 700; }
 }
 
 /* =====================================================
+   HOBBIES PAGE
+   ===================================================== */
+.hobbies-page { padding: 28px; }
+
+.hobbies-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 16px;
+}
+
+.hobby-card {
+  background: var(--bg-elev);
+  border: 1px solid var(--border-glow);
+  padding: 20px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: all 0.2s;
+  position: relative;
+}
+
+.hobby-card::before,
+.hobby-card::after {
+  content: '';
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border-color: var(--cyan);
+  border-style: solid;
+  opacity: 0;
+  transition: opacity 0.2s;
+  pointer-events: none;
+}
+.hobby-card::before { top: -2px; left: -2px; border-width: 2px 0 0 2px; }
+.hobby-card::after  { bottom: -2px; right: -2px; border-width: 0 2px 2px 0; }
+
+.hobby-card:hover {
+  border-color: var(--border-cyan);
+  box-shadow: 0 0 0 1px var(--border-cyan), 0 6px 24px rgba(34, 211, 238, 0.1);
+  transform: translateY(-2px);
+}
+.hobby-card:hover::before,
+.hobby-card:hover::after {
+  opacity: 1;
+  filter: drop-shadow(0 0 4px var(--cyan-glow));
+}
+
+.hobby-card-head {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.hobby-card-code {
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  color: var(--cyan);
+  background: rgba(34, 211, 238, 0.08);
+  border: 1px solid var(--border-cyan);
+  padding: 5px 10px;
+  min-width: 46px;
+  text-align: center;
+  text-shadow: 0 0 6px var(--cyan-glow);
+  user-select: none;
+  flex-shrink: 0;
+}
+
+.hobby-card:hover .hobby-card-code {
+  background: var(--cyan);
+  color: var(--bg-deep);
+  text-shadow: none;
+  box-shadow: 0 0 12px var(--cyan-glow);
+}
+
+.hobby-card-title {
+  font-family: var(--mono);
+  font-size: 1.04rem;
+  font-weight: 700;
+  color: var(--text-bright);
+  letter-spacing: 0.01em;
+  line-height: 1.25;
+}
+
+.hobby-card-desc {
+  font-size: 0.92rem;
+  color: var(--text-dim);
+  line-height: 1.7;
+}
+
+.hobby-card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-top: auto;
+}
+
+@media (max-width: 600px) {
+  .hobbies-page { padding: 18px; }
+  .hobbies-grid { grid-template-columns: 1fr; }
+}
+
+/* =====================================================
    BLOG
    ===================================================== */
 .blog-page { padding: 28px; }

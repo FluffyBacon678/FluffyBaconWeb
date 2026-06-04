@@ -6,6 +6,7 @@ const navItems = [
   { to: '/resume',   label: 'Resume'   },
   { to: '/gallery',  label: 'Gallery'  },
   { to: '/blog',     label: 'Blog'     },
+  { to: '/hobbies',  label: 'Hobbies'  },
 ]
 
 export function Navbar() {
