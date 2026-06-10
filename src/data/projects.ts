@@ -29,6 +29,7 @@ export interface Project {
 
   // === OPTIONAL — used on the project detail page ===
   tagline?: string                  // short subtitle under the title
+  preview?: string                  // image shown on the project CARD (e.g. "projects/foo.jpg" in public/images/)
   sections?: ProjectSection[]       // free-form sections in order
   screenshots?: ProjectScreenshot[]
   links?: ProjectLink[]             // extra links (GitHub/demo auto-added below)
@@ -44,6 +45,34 @@ export interface Project {
 // ─────────────────────────────────────────────────────────────
 
 export const projects: Project[] = [
+
+  {
+    id: 'duckhunt-wallpaper',
+    title: 'Duck Hunt Wallpaper',
+    status: 'Active',
+    category: 'Wallpaper Engine',
+    description:
+      'A Duck Hunt-style live wallpaper for Wallpaper Engine.',
+    tech: ['JavaScript', 'HTML', 'CSS', 'Wallpaper Engine'],
+    githubUrl: 'https://github.com/FluffyBacon678/DuckHunt-Wallpaper',
+    date: '2026-06-07',
+    featured: false,
+    // To add a card preview image: drop a file in public/images/projects/
+    // and set:  preview: 'projects/duckhunt.jpg',
+  },
+
+  {
+    id: 'forest-fire-wallpaper',
+    title: 'Forest Fire Wallpaper',
+    status: 'Active',
+    category: 'Wallpaper Engine',
+    description:
+      'A live wallpaper of a forest fire scene for Wallpaper Engine.',
+    tech: ['HTML', 'JavaScript', 'CSS', 'Wallpaper Engine'],
+    githubUrl: 'https://github.com/FluffyBacon678/ForestFirewallpaper',
+    date: '2026-06-04',
+    featured: false,
+  },
 
   {
     id: 'forest-wallpaper-village',

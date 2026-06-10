@@ -1,5 +1,7 @@
 import { Link } from 'react-router-dom'
 import type { Project, ProjectStatus } from '../data/projects'
+import { ImageWithFallback } from './ImageWithFallback'
+import { getImageUrl } from '../utils/images'
 
 function statusBadgeClass(status: ProjectStatus): string {
   const map: Record<ProjectStatus, string> = {
@@ -23,6 +25,15 @@ export function ProjectCard({ project }: Props) {
         className="project-card-link"
         aria-label={`View ${project.title}`}
       >
+        {project.preview && (
+          <div className="project-card-preview">
+            <ImageWithFallback
+              src={getImageUrl(project.preview)}
+              alt={`${project.title} preview`}
+            />
+          </div>
+        )}
+
         <div className="project-card-header">
           <h3 className="project-card-title">{project.title}</h3>
           <span className={statusBadgeClass(project.status)}>{project.status}</span>
