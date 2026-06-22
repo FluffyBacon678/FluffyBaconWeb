@@ -47,6 +47,45 @@ export interface Project {
 export const projects: Project[] = [
 
   {
+    id: 'eleven-foot-eight-bridge',
+    title: '11foot8 — The Can-Opener Bridge',
+    status: 'Active',
+    category: 'Wallpaper Engine',
+    description:
+      'A live wallpaper of the famous 11foot8 "can-opener" bridge, where overheight trucks meet a very low overpass.',
+    tech: ['JavaScript', 'HTML', 'CSS', 'Wallpaper Engine'],
+    githubUrl: 'https://github.com/FluffyBacon678/11-FOOT-8-The-Canopener-Bridge',
+    date: '2026-06-22',
+    featured: false,
+  },
+
+  {
+    id: 'train-conductor-wallpaper',
+    title: 'Train Conductor Wallpaper',
+    status: 'Active',
+    category: 'Wallpaper Engine',
+    description:
+      'A train-themed live wallpaper for Wallpaper Engine.',
+    tech: ['JavaScript', 'HTML', 'CSS', 'Wallpaper Engine'],
+    githubUrl: 'https://github.com/FluffyBacon678/Train-ConductorWallpaper-',
+    date: '2026-06-15',
+    featured: false,
+  },
+
+  {
+    id: 'ai-agents-office',
+    title: 'AI Agents Office',
+    status: 'In Progress',
+    category: 'AI / Web',
+    description:
+      'A little virtual office for your AI agents — a small space to watch them work.',
+    tech: ['TypeScript', 'Web'],
+    githubUrl: 'https://github.com/FluffyBacon678/AI-agents-office-',
+    date: '2026-06-14',
+    featured: true,
+  },
+
+  {
     id: 'duckhunt-wallpaper',
     title: 'Duck Hunt Wallpaper',
     status: 'Active',
